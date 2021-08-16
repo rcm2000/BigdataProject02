@@ -4,11 +4,11 @@ from frame.value import User
 
 
 class UserDB(Db):
-    def update(self, id, pwd, name,imgname,email):
+    def update(self, id, pwd, name, imgname, email):
         try:
             conn = super().getConnection();
             cursor = conn.cursor();
-            cursor.execute(Sql.userupdate % (id, pwd, name,imgname,email));
+            cursor.execute(Sql.userupdate % ( pwd, name,imgname,email, id));
             conn.commit();
         except:
             conn.rollback();
@@ -72,13 +72,13 @@ def userlistone_test():
     users = UserDB().selectone('test03');
     print(users);
 def userinsert_test():
-    UserDB().insert('test04','pwd04','정우성',None,'test04@gmail.com');
+    UserDB().insert('test04','pwd04','정우성','jws.jpg','test04@gmail.com');
 
 def userupdate_test():
-    UserDB().update('test03','pwd03','홍말숙');
+    UserDB().update('test04','pwd04','감우성','test04','test04@gmail.com');
 
 def userdel_test():
     UserDB().delete('test07');
 
 if __name__ == '__main__':
-    userdel_test()
+    userinsert_test()

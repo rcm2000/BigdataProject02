@@ -41,40 +41,35 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex">
 
-      <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index"><span>Scaffold</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <div >
+        <a href="index"><img src="{% static 'assets/img/logo4.png' %}" class="img-fluid" alt=""></a>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index">Home</a></li>
-          <li class="drop-down"><a href="">About1</a>
+          <li class="drop-down"><a href="index">개요</a>
             <ul>
               <li><a href="#about">About Us</a></li>
               <li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li>
               <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#contact">Contact</a></li>
-
-              <li><a href="#team">Team</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
             </ul>
           </li>
-          <li><a href="index2">창업 위치 선정</a>
-          <li><a href="index3">업종 선정</a>
+          <li><a href="index3">창업 위치 선정</a>
+          <li><a href="index2">업종 선정</a>
           <li><a href="index4">비용 절감</a>
           <li><a href="index">수익 극대화</a>
-
+          {% if request.session.suser == None %}
+          <li><a href="login">로그인</a>
+          <li><a href="signup">회원가입</a>
+          {% else %}
+          <li class="drop-down"><a href="#">{{request.session.suser.name}}(님)</a>
+             <ul>
+<!--                 <li><a href="{% url 'login' %}">{{request.session.suser.id}}</a></li>-->
+               <li><a href="{% url 'profile' %}?id={{request.session.suser.id}}">PROFILE</a></li>
+               <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+               <li><a href="{% url 'quit' %}?id={{request.session.suser.id}}">회원 탈퇴</a></li>
+             </ul>
+          {% endif %}
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -140,8 +135,8 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+    <!-- ======= Features2 Section ======= -->
+    <section id="features2" class="features2">
       <div class="container">
 
         <div class="row">

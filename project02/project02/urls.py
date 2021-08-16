@@ -35,6 +35,8 @@ urlpatterns = [
     path('quitok', views.quitok, name='quitok'),
     path('registerok', views.registerok, name='registerok'),
     path('profile', views.profile, name='profile'),
+    path('ud_profile', views.ud_profile, name='ud_profile'),
+    path('userupdateimpl', views.userupdateimpl, name='userupdateimpl'),
 
 
 

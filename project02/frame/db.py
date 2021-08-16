@@ -1,5 +1,18 @@
 import pymysql
 
+#배포용
+# config = {
+#     'database': 'cjdauddl93$user',
+#     'user': 'cjdauddl93',
+#     'password': 'mariadb11!!',
+#     'host':'cjdauddl93.mysql.pythonanywhere-services.com',
+#     'port': 3306,
+#     'charset':'utf8',
+#     'use_unicode':True
+# }
+
+
+#로컬용
 config = {
     'database': 'userdb',
     'user': 'project02',

@@ -1,6 +1,10 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.utils.http import urlencode
+
+from config.settings import UPLOAD_DIR
 from frame.custdb import UserDB
 from frame.error import ErrorCode
 
@@ -85,7 +89,7 @@ def useraddimpl(request):
 
     if id != '' and pwd != ''and name != ''and email != '':
         try:
-            UserDB().insert(id, pwd, name,None,email);
+            UserDB().insert(id, pwd, name,'basic.png',email);
             user = UserDB().selectone(id)
             context = {
                 'u': user
@@ -107,5 +111,37 @@ def quitok(request):
     return render(request, 'quitok.html')
 
 def profile(request):
+    id = request.GET['id'];
+    user = UserDB().selectone(id);
+    context = {'u': user};
+    return render(request, 'profile.html',context)
 
-    return render(request, 'profile.html')
+
+def ud_profile(request):
+    id = request.GET['id'];
+    user = UserDB().selectone(id);
+    context = {'u': user};
+    return render(request, 'ud_profile.html',context)
+
+def userupdateimpl(request):
+    id  = request.POST['id'];
+    pwd = request.POST['pwd'];
+    name = request.POST['name'];
+    oldimg = request.POST['oldimg'];
+    email = request.POST['email'];
+    imgname = '';
+
+    if 'newimg' in request.FILES:
+        newimg = request.FILES['newimg']
+        imgname = newimg._name
+
+        fp = open('%s/%s' % (UPLOAD_DIR, imgname), 'wb')
+        for chunk in newimg.chunks():
+            fp.write(chunk);
+            fp.close();
+    else:
+        imgname = oldimg;
+    UserDB().update(id,pwd,name, imgname,email);
+    qstr = urlencode({'id': id})
+    return HttpResponseRedirect('%s?%s' % ('profile', qstr))
+

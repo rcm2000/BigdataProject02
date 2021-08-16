@@ -110,17 +110,24 @@
 
           <div class="testimonial-item">
 
-              <br><br><h1><b> &nbsp &nbsp MY PROFILE</b></h1><br><br><br>
+              <br><br><h1><b> &nbsp &nbsp UPDATE PROFILE</b></h1><br><br><br>
 
             <img src="static/assets/img/profile/{{u.imgname}}" class="testimonial-img" >
 <!--            확장자 체크-->
-            <h3>{{u.name}}</h3><br>
-            <h4>{{u.email}}</h4><br>
-            <h4>{{u.regdate}}</h4><br>
-            <h4>환영합니다 {{u.name}}(님)</h4><br>
-          </div>
-          &nbsp &nbsp &nbsp &nbsp <a href="{% url 'ud_profile' %}?id={{u.id}}" class="btn">정보변경</a> <a href="{% url 'logout' %}" class="btn">로그아웃</a><a href="{% url 'quit' %}?id={{u.id}}" class="btn">회원탈퇴</a>
-        </div>
+            <form action="{% url 'userupdateimpl' %}" method="POST" ENCTYPE="multipart/form-data">
+        {% csrf_token %}
+              <table style="margin-left: auto; margin-right: auto;">
+	<tr>
+              <td>IMG</td><td><input type="file" name="newimg"></td></tr>
+        <input type="hidden" name="oldimg" value="{{u.imgname}}">
+        <td>ID</td><td><input type="text" name="id" value="{{u.id}}" readonly></td><tr>
+        <td>Password</td><td><input type="password" name="pwd" value="{{u.pwd}}"></td><tr>
+        <td>Name</td><td><input type="text" name="name" value="{{u.name}}"></td><tr>
+       <td> Email</td><td><input type="text" name="email" value="{{u.email}}"></td><tr>
+              </table>
+               <input type="submit" value="수정하기">
+
+    </form>
       </div>
          </div>
 
