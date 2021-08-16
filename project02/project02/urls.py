@@ -37,6 +37,7 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('ud_profile', views.ud_profile, name='ud_profile'),
     path('userupdateimpl', views.userupdateimpl, name='userupdateimpl'),
+    path('analysis', views.analysis, name='analysis'),
 
 
 

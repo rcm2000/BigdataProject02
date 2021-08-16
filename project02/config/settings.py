@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-zg##5#(-&bjz-r3s3twgqlb)6-^(n^v-#8^31$!2w(4*@xvg4g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,7 +128,7 @@ os.path.join(BASE_DIR, 'static')
 ]
 UPLOAD_DIR = os.path.join(BASE_DIR,'static/assets/img/profile');
 DATA_DIRS = [
-
+os.path.join(BASE_DIR, 'myanalysis'),
 os.path.join(BASE_DIR, 'data')
 
 ]

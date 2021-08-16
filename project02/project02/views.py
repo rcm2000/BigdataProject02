@@ -7,6 +7,8 @@ from django.utils.http import urlencode
 from config.settings import UPLOAD_DIR
 from frame.custdb import UserDB
 from frame.error import ErrorCode
+from myanalysis.clustering import Kprototypes
+from myanalysis.data.tip import tips
 
 
 def index(request):
@@ -145,3 +147,58 @@ def userupdateimpl(request):
     qstr = urlencode({'id': id})
     return HttpResponseRedirect('%s?%s' % ('profile', qstr))
 
+def analysis(request):
+    code = request.POST['code'];
+    type = request.POST['type'];
+    location = request.POST['location'];
+    m_sales = request.POST['m_sales'];
+    m_orders = request.POST['m_orders'];
+    m_amounts = request.POST['m_amounts'];
+    time = request.POST['time'];
+    if code != '' and type != ''and location != ''and m_sales != ''and m_orders != ''and m_amounts != ''and time != '' :
+        result = Kprototypes().analysis(code, type, location, int(m_sales), int(m_orders), int(m_amounts), int(time)*60)
+        if int(result) == 1:
+            context = {
+                'msg': tips.tip1[0],
+                'msg1': tips.tip1[1],
+                'msg2': tips.tip1[2],
+                'msg3': tips.tip1[3],
+            };
+            return render(request, 'index4.html', context);
+        if int(result) == 2:
+            context = {
+                'msg': tips.tip2[0],
+                'msg1': tips.tip2[1],
+
+            };
+            return render(request, 'index4.html', context);
+        if int(result) == 3:
+            context = {
+                'msg': tips.tip3[0],
+                'msg1': tips.tip3[1],
+                'msg2': tips.tip3[2],
+            };
+            return render(request, 'index4.html', context);
+        if int(result) == 4:
+            context = {
+                'msg': tips.tip4[0],
+                'msg1': tips.tip4[1],
+            };
+            return render(request, 'index4.html', context);
+    else:
+        context = {
+            'error': ErrorCode.e0004
+        };
+        return render(request, 'index4.html', context);
+
+    # result = Kprototypes.analysis(code, type, location, int(m_sales), int(m_orders), int(m_amounts), int(time))
+    # if result == '2':
+    #     context = {
+    #         'msg': print(result)
+    #     };
+    #
+    # else:
+    #     context = {
+    #         'msg': tips.tip1
+    #     };
+    return render(request, 'index4.html')
