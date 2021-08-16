@@ -565,6 +565,85 @@ section {
     opacity: 1;
   }
 }
+
+/*--------------------------------------------------------------
+# Features2
+--------------------------------------------------------------*/
+.features2 {
+  padding-bottom: 40px;
+}
+
+.features2 .nav-tabs {
+  border: 0;
+}
+
+.features2 .nav-link {
+  border: 0;
+  padding: 20px;
+  transition: 0.3s;
+  color: #364146;
+  transition: 0.3s ease-in-out;
+  border-radius: 0;
+  border-left: 4px solid #fafbfb;
+}
+
+.features2 .nav-link h4 {
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  color: #576971;
+}
+
+.features2 .nav-link p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.features2 .nav-link:hover {
+  background: #fafbfb;
+}
+
+.features2 .nav-link:hover h4 {
+  color: #364146;
+}
+
+.features2 .nav-link.active {
+  border-radius: 0;
+  border: 0;
+  border-left: 4px solid #00ea0c;
+  background: #fafbfb;
+}
+
+.features2 .nav-link.active h4 {
+  color: #009cea;
+}
+
+.features2 .tab-pane.active {
+  -webkit-animation: slide-down 0.5s ease-out;
+  animation: slide-down 0.5s ease-out;
+}
+
+.features2 .tab-content {
+  text-align: right;
+}
+
+@-webkit-keyframes slide-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*--------------------------------------------------------------
 # Features3
 --------------------------------------------------------------*/
