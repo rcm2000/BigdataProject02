@@ -202,3 +202,6 @@ def analysis(request):
     #         'msg': tips.tip1
     #     };
     return render(request, 'index4.html')
+def index5(request):
+
+    return render(request, 'index5.html')

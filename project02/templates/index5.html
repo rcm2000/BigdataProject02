@@ -37,8 +37,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+<header id="header" class="fixed-top">
     <div class="container d-flex">
 
       <div >
@@ -50,8 +49,8 @@
           <li><a href="index">개요</a>
           <li><a href="index3">창업 위치 선정</a>
           <li><a href="index2">업종 선정</a>
-          <li class="active"><a href="index4">컨설팅</a>
-          <li><a href="index5">수요 예측</a>
+          <li><a href="index4">컨설팅</a>
+          <li class="active"><a href="index5">수요 예측</a>
           {% if request.session.suser == None %}
           <li><a href="login">로그인</a>
           <li><a href="signup">회원가입</a>
@@ -75,128 +74,179 @@
     </div>
   </header><!-- End Header -->
 
-<!-- ======= Hero Section ======= -->
+  <!-- ======= Hero Section ======= -->
   <section id="hero">
 
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div>
-            <h1>머신러닝 컨설팅 서비스</h1>
-            <h2>저희 INS2GHT는 빅데이터 분석을 통한 인공지능 상권 분류 분석 모델을 개발하여 소상공인분들이 이용할 수 있는 인공지능 컨설팅 서비스를 제공합니다.</h2>
-            <a href="#tips" class="btn-get-started scrollto">시작하기</a>
+            <h1>수요 예측 서비스</h1>
+            <h2>Ins2ght의 수요 예측 서비스를 이용해보세요.<br>
+배달 앱 데이터 만으로 내 가게에 최적화된 수요 예측 시계열 모델을 만들 수 있습니다.
+빅데이터 분석을 통해 미래 수요를 예측하고 트렌드 변화를 살펴보세요. </h2>
+            <a href="#about" class="btn-get-started scrollto">시작하기</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
+          <img src="{% static 'assets/img/features-1.png' %}" class="img-fluid" alt="">
         </div>
       </div>
     </div>
 
   </section><!-- End Hero -->
-
-  <section id="analysis">
-  </section><!-- End Hero -->
-  <!-- ======= Services Section ======= -->
-    <section id="tips" class="services section-bg">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-up">
-          <h2>머신러닝 컨설팅</h2>
-        </div>
-        <div class="container">
-           <table>
-	<tr><!-- 첫번째 줄 시작 -->
-	    <td rowspan="2"><img src="{% static 'assets/img/analysis.png' %}"></td>
-	    <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
-        <td><h3><i class="bx bx-check-square"></i>하단의 정보를 입력하고 하단의 컨설팅 팁을 확인하세요.</h3></td>
-	</tr><!-- 첫번째 줄 끝 -->
-	<tr><!-- 두번째 줄 시작 -->
-        <td>&emsp;&emsp;&emsp;</td>
-	    <td><form action="analysis" method="post">
-            {% csrf_token %}
-              <div class="form-group first">
-                <label for="type"><i class="bx bx-check-circle"></i> 업종</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <select type="text" class="form-control-sm" name="type" id="type">
-                    <option value='' selected>-- 선택 --</option>
-                    <option value='도시락'>도시락</option>
-                    <option value='돈까스/일식'>돈까스/일식</option>
-                    <option value='분식'>분식</option>
-                    <option value='아시안/양식'>아시안/양식</option>
-                    <option value='야식'>야식</option>
-                    <option value='족발/보쌈'>족발/보쌈</option>
-                    <option value='중식'>중식</option>
-                    <option value='찜탕'>찜탕</option>
-                    <option value='치킨'>치킨</option>
-                    <option value='카페/디저트'>카페/디저트</option>
-                    <option value='패스트푸드'>패스트푸드</option>
-                    <option value='피자'>피자</option>
-                    <option value='한식'>한식</option>
-                    <option value='회'>회</option>
-                    </select><br>
-                <label for="location"><i class="bx bx-check-circle"></i> 위치(읍/면/동)</label>&emsp;&emsp;
-                <input type="text" class="form-control-sm" name="location" id="location"><br>
-                <label for="code"><i class="bx bx-check-circle"></i> 지역코드 <a href="https://www.code.go.kr/stdcode/regCodeL.do" target="_blank"><i class="bx bx-search-alt-2"></i></a></label>&emsp;&emsp;&emsp;
-                <input type="text" class="form-control-sm" name="code" id="code"><br>
-                <label for="m_sales"><i class="bx bx-check-circle"></i> 월 평균 배달 매출 </label>&emsp;
-                <input type="text" class="form-control-sm" name="m_sales" id="m_sales"><br>
-                <label for="m_orders"><i class="bx bx-check-circle"></i> 월 평균 주문 건수 </label>&emsp;
-                <input type="text" class="form-control-sm" name="m_orders" id="m_orders"><br>
-                <label for="m_amounts"><i class="bx bx-check-circle"></i> 월 평균 주문 금액 </label>&emsp;
-                <input type="text" class="form-control-sm" name="m_amounts" id="m_amounts"><br>
-                <label for="time"><i class="bx bx-check-circle"></i> 평균 소요 시간 (분)</label>
-                <input type="text" class="form-control-sm" name="time" id="time"><br>
-
-              </div>
-
-                <br><br>
-              <div>
-                {{error}}
-              </div>
-              <input type="submit" value="확인" class="btn btn-block btn-dark">
-
-            </form></td>
-	</tr><!-- 두번째 줄 끝 -->
-    </table>
-
-    </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
-            <div class="icon-box icon-box-pink">
-              <div class="icon"><i class="bx bx-bulb"></i></div>
-              <h4 class="title"><a href="">&emsp;&emsp;&emsp;&emsp;Tip1&emsp;&emsp;&emsp;&emsp;</a></h4>
-              <p class="description">{{msg}}</div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box icon-box-cyan">
-              <div class="icon"><i class="bx bx-bulb"></i></div>
-              <h4 class="title"><a href="">&emsp;&emsp;&emsp;&emsp;Tip2&emsp;&emsp;&emsp;&emsp;</a></h4>
-              <p class="description">{{msg1}} </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box icon-box-green">
-              <div class="icon"><i class="bx bx-bulb"></i></div>
-              <h4 class="title"><a href="">&emsp;&emsp;&emsp;&emsp;Tip3&emsp;&emsp;&emsp;&emsp;</a></h4>
-              <p class="description">{{msg2}}</div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box icon-box-blue">
-              <div class="icon"><i class="bx bx-bulb"></i></div>
-              <h4 class="title"><a href="">&emsp;&emsp;&emsp;&emsp;Tip4&emsp;&emsp;&emsp;&emsp;</a></h4>
-              <p class="description">{{msg3}} </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
 
   <main id="main">
- <!-- ======= Footer ======= -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about2 ">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="zoom-in">
+            <img src="{% static 'assets/img/1.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 " data-aos="fade-left">
+            <div class="content pt-4 pt-lg-0">
+              <h3>모델 학습 및 예측</h3>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> Facebook에서 공개한 FBprophet 라이브러리를 활용한 시계열 데이터 예측을 수행합니다.</li>
+                <li><i class="icofont-check-circled"></i> 가게 매출 데이터를 활용하여 모델을 학습시키고 수요를 예측합니다.</li>
+                  </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-right">
+            <div class="content pt-4 pt-lg-0">
+              <h3>트렌드 리포트</h3>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> 트렌드 리포트를 통해 내 가게의 수요 트렌드를 확인할 수 있습니다. </li>
+                <li><i class="icofont-check-circled"></i> 월별, 요일별, 시간별 변화를 한눈에 알아보기 쉽게 시각화하여 제공해 드립니다</li>
+               </ul>
+
+
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="zoom-in" align="right">
+            <img src="{% static 'assets/img/4.png' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+      </div>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="zoom-in">
+            <img src="{% static 'assets/img/3.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
+            <div class="content pt-4 pt-lg-0">
+              <h3>20일 정밀 예측</h3>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> 수요 예측을 통해 식재료 수급을 효율적으로 관리해보세요.</li>
+                <li><i class="icofont-check-circled"></i> 다가올 20일의 수요, 최저 수요, 최대 수요를 예측하여 실시간으로 확인할 수 있습니다.</li>
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>수요 예측 서비스 신청</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-right">
+            <div class="info">
+              <div class="info2">
+
+                <img src="{% static 'assets/img/features-2.png' %}" class="img-fluid" alt="">
+                <i class="icofont-info"></i>
+                <h4>infomation:</h4>
+                <p>수요 예측 맞춤 분석 서비스를 이용하고 싶으신 고객님 꼐서는 우측의 메세지를 작성하시어 보내주시면 자세하게 상담 안내를 도와드립니다.</p>
+              </div>
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>cjdauddl93@gmail.com</p>
+              </div>
+
+               </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
+            <div class="info">
+            <form action="https://script.google.com/macros/s/AKfycbz5uJC1aZ-qPAS2LJZjuDRFfIhrxk8RWV1LIpb5FhCqn6Dj9AFn/exec" method="post" role="form" class="gform" data-email="cjdauddl93@gmail.com">
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div style="display:none" class="thankyou_message">
+ <!-- You can customize the thankyou message by editing the code below -->
+ <h2> 신청이 완료되었습니다! <>기다려 주시면 기입하신 이메일로 상담 관련 연락 드리겠습니다.
+ </h2>
+</div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div></div>
+
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -266,7 +316,6 @@
 
   <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
 
-
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -279,7 +328,8 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-
+  <script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 </body>
 
 </html>
