@@ -37,8 +37,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+<header id="header" class="fixed-top">
     <div class="container d-flex">
 
       <div >
@@ -48,17 +47,11 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="index">개요</a>
-          <li class="drop-down active"><a href="">창업 위치 선정</a>
-            <ul>
-              <li><a href="#country">전국 탐색</a></li>
-              <li><a href="#seoul">서울시</a></li>
-              <li><a href="#gyeonggi">경기도</a></li>
-            </ul>
-          </li>
+          <li><a href="index3">창업 위치 선정</a>
           <li><a href="index2">업종 선정</a>
           <li><a href="index4">컨설팅</a>
           <li><a href="index5">수요 예측</a>
-          <li><a href="index6">About us</a>
+          <li class="active"><a href="index6">About us</a>
           {% if request.session.suser == None %}
           <li><a href="login">로그인</a>
           <li><a href="signup">회원가입</a>
@@ -83,41 +76,80 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-
-  <section id="country">
+  <section id="hero">
 
     <div class="container">
-      <div class='tableauPlaceholder' id='viz1628760964393' style='position: relative'><noscript><a href='#'><img alt='대시보드 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;8X&#47;8XFMP6H6X&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;8XFMP6H6X' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;8X&#47;8XFMP6H6X&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1628760964393');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.minHeight='787px';vizElement.style.maxHeight='1487px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.minHeight='787px';vizElement.style.maxHeight='1487px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='2077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+          <div>
+            <h1>About us</h1>
+            <h2>Ins2ght는 Bigdate analysis를 꿈꾸는 취업준비생 2명이서 구성되어 있습니다.
+              <br>본질을 꿰뚫어 본다는 뜻의 Insight와 팀구성원 수인 2를 합하여 두명이서 유용한 인사이트를 도출해내자는 의미를 가지고 있습니다. </h2>
+
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+          <img src="{% static 'assets/img/insight.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
     </div>
 
   </section><!-- End Hero -->
 
   <main id="main">
-
-
-    <!-- ======= seoul Section ======= -->
-<section id="seoul" class="seoul">
-<div class="container">
-      <div class='tableauPlaceholder' id='viz1628769497162' style='position: relative'><noscript><a href='#'><img alt='대시보드 3 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;1_&#47;1_16285153129530&#47;3_2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='1_16285153129530&#47;3_2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;1_&#47;1_16285153129530&#47;3_2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='ko-KR' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1628769497162');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='1487px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='1050px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='1487px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-</div>
-  </section>
-    <!-- ======= Clients Section ======= -->
-<section id="gyeonggi" class="about">
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
       <div class="container">
 
-          <h3>경기도 구역별 데이터</h3><br><br><br><br><br><br><br>
-          <br><br><br>
-            <img src="{% static 'assets/img/tobecon.png' %}">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team members&emsp;&emsp;&emsp;</h2>
+             </div>
 
-
+        <div class="row">
+        <div class="col-sm">
+        </div>
+          <div class="col-lg">
+            <div class="member" data-aos="zoom-in">
+              <div class="pic"><img src="{% static 'assets/img/team/jaewoong.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="col-lg">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-3">
+          </div>
+          </div>
 
       </div>
-    </section>
+    </section><!-- End Team Section -->
 
- <!-- ======= Footer ======= -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
@@ -187,7 +219,6 @@
 
   <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
 
-
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -200,7 +231,8 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
-
+  <script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
 </body>
 
 </html>

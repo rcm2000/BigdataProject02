@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Scaffold Bootstrap Template - Index</title>
+  <title>Ins2ght</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/favicon2.png' %}" rel="icon">
+  <link href="{% static 'assets/img/favicon2.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -52,6 +52,7 @@
           <li><a href="index2">업종 선정</a>
           <li class="active"><a href="index4">컨설팅</a>
           <li><a href="index5">수요 예측</a>
+          <li><a href="index6">About us</a>
           {% if request.session.suser == None %}
           <li><a href="login">로그인</a>
           <li><a href="signup">회원가입</a>
@@ -142,7 +143,7 @@
                 <input type="text" class="form-control-sm" name="m_sales" id="m_sales"><br>
                 <label for="m_orders"><i class="bx bx-check-circle"></i> 월 평균 주문 건수 </label>&emsp;
                 <input type="text" class="form-control-sm" name="m_orders" id="m_orders"><br>
-                <label for="m_amounts"><i class="bx bx-check-circle"></i> 월 평균 주문 금액 </label>&emsp;
+                <label for="m_amounts"><i class="bx bx-check-circle"></i> 건당 평균 주문 금액 </label>&emsp;
                 <input type="text" class="form-control-sm" name="m_amounts" id="m_amounts"><br>
                 <label for="time"><i class="bx bx-check-circle"></i> 평균 소요 시간 (분)</label>
                 <input type="text" class="form-control-sm" name="time" id="time"><br>

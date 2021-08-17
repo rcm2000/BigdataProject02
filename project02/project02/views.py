@@ -23,6 +23,9 @@ def index3(request):
 def index4(request):
 
     return render(request, 'index4.html')
+def index6(request):
+
+    return render(request, 'index6.html')
 def login(request):
 
     return render(request, 'login.html')
@@ -169,6 +172,8 @@ def analysis(request):
             context = {
                 'msg': tips.tip2[0],
                 'msg1': tips.tip2[1],
+                'msg2': tips.tip2[2],
+                'msg3': tips.tip2[3],
 
             };
             return render(request, 'index4.html', context);
@@ -177,12 +182,15 @@ def analysis(request):
                 'msg': tips.tip3[0],
                 'msg1': tips.tip3[1],
                 'msg2': tips.tip3[2],
+                'msg3': tips.tip3[3],
             };
             return render(request, 'index4.html', context);
         if int(result) == 4:
             context = {
                 'msg': tips.tip4[0],
                 'msg1': tips.tip4[1],
+                'msg2': tips.tip4[2],
+                'msg3': tips.tip4[3],
             };
             return render(request, 'index4.html', context);
     else:

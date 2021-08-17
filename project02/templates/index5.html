@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Scaffold Bootstrap Template - Index</title>
+  <title>Ins2ght</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/favicon2.png' %}" rel="icon">
+  <link href="{% static 'assets/img/favicon2.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -51,6 +51,7 @@
           <li><a href="index2">업종 선정</a>
           <li><a href="index4">컨설팅</a>
           <li class="active"><a href="index5">수요 예측</a>
+          <li><a href="index6">About us</a>
           {% if request.session.suser == None %}
           <li><a href="login">로그인</a>
           <li><a href="signup">회원가입</a>
@@ -231,8 +232,9 @@
               <div class="text-center"><button type="submit">Send Message</button></div>
               <div style="display:none" class="thankyou_message">
  <!-- You can customize the thankyou message by editing the code below -->
- <h2> 신청이 완료되었습니다! <>기다려 주시면 기입하신 이메일로 상담 관련 연락 드리겠습니다.
- </h2>
+ <h3> 신청이 완료되었습니다!
+   <br>기다려 주시면 기입하신 이메일로 상담 관련 연락 드리겠습니다.
+ </h3>
 </div>
             </form>
 
