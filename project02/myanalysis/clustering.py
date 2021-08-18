@@ -12,10 +12,10 @@ class Kprototypes:
     def analysis(self, hjd, induty, bjd, monthsales, monthcall, pricePerCall, time):
 
         # 데이터 준비
-        kp = pickle.load(open(DATA_DIRS[0]+'\\data\\kp.pkl','rb'))
+        kp = pickle.load(open(DATA_DIRS[0]+'/data/kp.pkl','rb'))
         # f2 = open(DATA_DIRS[0]+'\\data\\samples.csv', header=0, index_col=False);
         # kp = pickle.load(open('./data/kp.pkl','rb'))
-        samples = pd.read_csv(DATA_DIRS[0]+'\\data\\samples.csv', header=0, index_col=False);
+        samples = pd.read_csv(DATA_DIRS[0]+'/data/samples.csv', header=0, index_col=False);
 
         # 리스트 형태로 입력
         store = [hjd, induty, bjd, monthsales, monthcall, pricePerCall, time]
