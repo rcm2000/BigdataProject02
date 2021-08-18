@@ -32,7 +32,9 @@
 
 파이참 환경이 구비되어 있다면, 위 GitHub코드를 수동으로 다운받거나 cmd창에서 git clone하여 local에서 바로 사용할 수 있습니다 .또한 pythonanywhere을 통하여 웹상에 배포가 되어 있으니 하단의 링크로 직접 확인하실 수 있습니다.
 
-(배포한 화면 및 사이트 URL 표기)
+![main](md-images/main.png)
+
+(http://cjdauddl93.pythonanywhere.com/)
 
 ## 절차
 
@@ -344,15 +346,153 @@ df_fin = df.merge(df3, on=['date','code'], how='left')
 
 - ### 웹 구현
 
-  
+  <img src="md-images/django.jpg" alt="django" style="zoom:33%;" />
+
+   **django** 환경 세팅
+
+  - 파이썬 프로젝트 생성
+
+    ```
+    pip install django ## django 설치
+    django-admin startproject config . ## Web Application 환경으로 변환
+    python manage.py startapp project01 ## Project 안에 Web Application 생성
+    ```
+
+  - 기본 setting
+
+    html 폴더 설정 , settings.py 수정, urls.py, views.py 수정
+
+    **2. bootstrap 선택 및 적용**
+
+    - https://themewagon.com/ bootstrap 사이트를 통하여 프로젝트에 알맞는 bootstrap 선정
+
+    ![bootstrap](md-images/bootstrap.PNG)Scaffold bootstrap으로 최종 선택
+
+    - static 폴더 생성 및 bootstrap href 연결
+
+      templates, static 폴더 생성
+
+      mazer에서 제공된 모든 html 파일들을 templates 폴더로 이동시키고, 나머지 소스들은 static 폴더로 이동
+
+      html 및 소스들의 url 연결
+
+      ```
+      {% load static %} ## static 폴더 사용
+      <link rel="stylesheet" href="../../../../Users/cjdau/Downloads/mazer-main/dist/assets/css/bootstrap.css"> ## 기존 href
+      
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">## 수정 후
+      ```
+
+    **3. 메뉴바 구성**
+
+    ![mnbar](md-images/mnbar.png)
+
+    - 주제를 토대로 menubar를 구성
+
+      ![page1](md-images/page1.PNG)
+
+      개요 - 프로젝트의 주제에 맞은 EDA들로 구성 (코로나에 따른 배달 변화, 시간대별, 위치별 배달주문 그래프)![page2](md-images/page2.PNG)
+
+      창업 위치 선정 - 창업 위치 선정을 위한 데이터 분석 페이지 (창업 위치 선정 대시보드 with tableau)
+
+      ![page3](md-images/page3.PNG)
+
+      업종선정 - 업종 선정을 위한 데이터 분석 페이지 (업종 선정 대시보드 with tableau)
+
+      ![page4](md-images/page4.PNG)
+
+      컨설팅 - 군집 분류 머신러닝 모델을 구축하여 자동으로 사용자가 입력한 데이터를 분석하고 해당 데이터에 맞는 tip을 주는 서비스.![page5_1](md-images/page5_1.PNG)
+
+      ![page5_2](md-images/page5_2.PNG)
+
+      수요 예측 - 머신러닝 시계열 분석 모델을 활용하여 미래를 예측해볼 수 있는 서비스, 고객이 직접 신청하면 메일로 답을 주는 방식의 서비스.
+
+      ![page6](md-images/page6.PNG)
+
+       About as - 간략한 팀소개 및 팀원 정보.
+
+      
 
 - ### 데이터 베이스 구축
 
-  
+  **Maria Db 세팅 및 Model 구축**
 
+  - Maria Db 세팅(HeidiSQL)
 
+    ![db1](md-images/db1.png)
 
+    사용관리자명을 project02로 한 전체권한의 사용자를 로컬, 웹 상에서 사용할 수 있도록 세팅
 
+    ![db2](md-images/db2.png)
 
+    세션을 만들고 앞서 만든 사용자 정보를 입력하여 열기
 
+  - DB 모델 구축![db3](md-images/db3.png)
 
+    Userdb 데이터 베이스와 user의 테이블을 구축 (id, pwd, name, imgname, email, regdate)를 받을수 있도록 모델을 구축
+
+  - MVT모델 패턴 (Django에 연동)
+
+  ![mvt](md-images/mvt-16292523246844.jpg)
+
+  Django와 MVT모델 패턴
+
+  - python 내부 db.py 만들고 서버와 연결
+
+  ![db4](md-images/db4-16292532756085.PNG)
+
+  로컬용 연결 코드 
+
+![db5](md-images/db5.PNG)
+
+Pythonanywhere용 연결 코드() 
+
+​	**로그인 회원가입 프로필 수정 페이지 구축**
+
+![db6](md-images/db6.PNG)
+
+python 내 Sql class 만들기
+
+![db7](md-images/db7.PNG)
+
+에러코드 작성
+
+![db8](md-images/db8.PNG)
+
+User class 만들기
+
+![db9](md-images/db9.PNG)
+
+회원가입 탈되 로그인 프로필수정 등에 필요한 함수들을 정의(update,delete,select 등)
+
+![db10](md-images/db10.PNG)
+
+로그인 템플릿에 `form` 을 구촉 
+
+![db11](md-images/db11.PNG)
+
+views.py 에 정의한 함수와 sql을 이용하여 form action을 활성화 시킴
+
+**완성된 페이지**
+
+![login](md-images/login.PNG)
+
+로그인 페이지 - db에 미리 넣어놓은 데이터를 통하여 로그인이 가능
+
+![login2](md-images/login2.PNG)
+
+로그인 완료 - 본인이 설정한 이름으로 menubar가 바뀜(하단에 drop down도 볼수있도록 구성.)
+
+![update](md-images/update-16292546420736.PNG)
+
+Profile 수정 탭 - 로컬 내의 사진을 불러와서 본인의 프로필로 할 수 있도록 설계
+
+![](md-images/update2.PNG)
+
+프로필 페이지 - 아까 수정한 사진과 함께 본인의 이메일 가입일자 등이 보이게 구성
+
+ (정보변경 로그아웃 회원탈퇴 포함)
+
+![quit](md-images/quit.PNG)
+
+회원 탈퇴 - 회원 탈퇴 기능(본인의 아이디가 고정으로 입력이 되어 있도록 구성.)
