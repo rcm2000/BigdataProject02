@@ -41,45 +41,26 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex">
 
-      <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index"><span>Scaffold</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <div >
+        <a href="index"><img src="{% static 'assets/img/logo4.png' %}" class="img-fluid" alt=""></a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="drop-down"><a href="index">Home</a>
-            <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#contact">Contact</a></li>
-
-              <li><a href="#team">Team</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="index2">창업 위치 선정</a>
-          <li><a href="index3">업종 선정</a>
-          <li><a href="index4">비용 절감</a>
-          <li><a href="index">수익 극대화</a>
+          <li><a href="index">개요</a>
+          <li><a href="index3">창업 위치 선정</a>
+          <li><a href="index2">업종 선정</a>
+          <li><a href="index4">컨설팅</a>
+          <li><a href="index5">수요 예측</a>
+          <li><a href="index6">About us</a>
           {% if request.session.suser == None %}
           <li><a href="login">로그인</a>
+          <li><a href="signup">회원가입</a>
           {% else %}
           <li class="drop-down"><a href="#">{{request.session.suser.name}}(님)</a>
              <ul>
 <!--                 <li><a href="{% url 'login' %}">{{request.session.suser.id}}</a></li>-->
-               <li><a href="{% url 'profile' %}">PROFILE</a></li>
+               <li class="active"><a href="{% url 'profile' %}?id={{request.session.suser.id}}">PROFILE</a></li>
                <li><a href="{% url 'logout' %}">LOGOUT</a></li>
                <li><a href="{% url 'quit' %}?id={{request.session.suser.id}}">회원 탈퇴</a></li>
              </ul>
@@ -88,10 +69,8 @@
       </nav><!-- .nav-menu -->
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        <a href="https://github.com/rcm2000/BigdataProject02" class="icon-git" target=”_blank”><i class="icofont-github"></i></a>
+        <a href="#" class="facebook"><i class="icofont-google-plus"></i></a>
       </div>
 
     </div>
@@ -137,15 +116,13 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>Scaffold</h3>
-              <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+              <h3>INS2GHT</h3>
+
+                <strong>Email:</strong> cjdauddl93@gmail.com<br>
               </p>
+              <br><br><br>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://github.com/rcm2000/BigdataProject02" class="github" target=”_blank”><i class="bx bxl-github"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                 <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
@@ -155,33 +132,29 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Reference</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://public.tableau.com/ko-kr/search/vizzes/%EB%85%B8%EC%B2%AD%EB%AA%85" target=”_blank”>Tableau</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://bdp.kt.co.kr/invoke/SOKBP0000/?ver=2.1" target=”_blank”>KT 빅데이터 플렛폼</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://dacon.io/competitions/official/235753/data" target=”_blank”>Dacon</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://data.seoul.go.kr/" target=”_blank”>서울 열린데이터 광장</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.data.go.kr/" target=”_blank”>공공 데이터 포럼</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> Data analysis</li>
+              <li><i class="bx bx-chevron-right"></i> Web Development</li>
+              <li><i class="bx bx-chevron-right"></i> Machinlearning</li>
+
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            <h4>Introduce</h4>
+            <p>Ins2ght는 2명이서 유용한 인사이트를 도출해내자는 의미를 가지고 있습니다.</p>
 
           </div>
 
