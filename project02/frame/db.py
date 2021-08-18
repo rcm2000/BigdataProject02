@@ -1,15 +1,15 @@
 import pymysql
 
 #배포용
-# config = {
-#     'database': 'rcm2000$user',
-#     'user': 'rcm2000',
-#     'password': 'mariadb11!!',
-#     'host':'rcm2000.mysql.pythonanywhere-services.com',
-#     'port': 3306,
-#     'charset':'utf8',
-#     'use_unicode':True
-# }
+config = {
+    'database': 'cjdauddl93$user',
+    'user': 'cjdauddl93',
+    'password': 'mariadb11!!',
+    'host':'cjdauddl93.mysql.pythonanywhere-services.com',
+    'port': 3306,
+    'charset':'utf8',
+    'use_unicode':True
+}
 
 
 #로컬용
