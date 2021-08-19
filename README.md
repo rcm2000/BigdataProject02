@@ -217,9 +217,172 @@ df_fin = df.merge(df3, on=['date','code'], how='left')
 
 ​		-결과 화면
 
+<h5> 5. 시계열 분석을 위한 데이터전처리
+</h5>
 
+​	1.**주문 시간, 주문 상태 컬럼 선택**
 
-* ### 데이터 시각화
+![fbprophet_preprocessing_1](md-images/fbprophet_preprocessing_1.png)
+
+​	2.**배달 상태가 완료인 행 추출**
+
+![fbprophet_preprocessing_2](md-images/fbprophet_preprocessing_2.png)
+
+​	3. **결측치 행 삭제**
+
+![fbprophet_preprocessing_3](md-images/fbprophet_preprocessing_3.png)
+
+​	4.**주문 시간 시계열 데이터로 변환**
+
+![fbprophet_preprocessing_4](md-images/fbprophet_preprocessing_4.png)
+
+​	5.**날짜별 주문 건수 합계 산출**
+
+![fbprophet_preprocessing_5](md-images/fbprophet_preprocessing_5.png)
+
+​	6. **시계열 분석을 위한 데이터 준비 완료**	
+
+![fbprophet_preprocessing_6](md-images/fbprophet_preprocessing_6.png)
+
+<h5>6. 군집분석을 위한 전처리</h5>
+
+​	1.**컬럼 선택 및 추출 **
+
+![K-Prototypes_preprocessing_1](md-images/K-Prototypes_preprocessing_1.png)
+
+​	2.**배달접수시간, 배달수령시간 결측치 행 삭제**
+
+![K-Prototypes_preprocessing_2](md-images/K-Prototypes_preprocessing_2.png)
+
+​	3.**주문 처리 시간 산출(배달수령시간 – 배달접수시간)**
+
+![K-Prototypes_preprocessing_3](md-images/K-Prototypes_preprocessing_3.png)
+
+​	4.**주문 처리 시간을 연속형 변수로 활용하기 위해 초단위로 변경**
+
+![K-Prototypes_preprocessing_4](md-images/K-Prototypes_preprocessing_4.png)
+
+​	5.**일반적 최소주문금액(5000원) 이하의 주문상품금액 값을 가진 행 제거**
+
+![K-Prototypes_preprocessing_5](md-images/K-Prototypes_preprocessing_5.png)
+
+​	6.**각 컬럼의 상점별 합계 또는 평균 산출**
+
+![K-Prototypes_preprocessing_6](md-images/K-Prototypes_preprocessing_6.png)
+
+​	7.**모든 연속형 변수 정수형으로 변환**
+
+![K-Prototypes_preprocessing_7](md-images/K-Prototypes_preprocessing_7.png)
+
+​	8.**범주형 데이터(행정동 코드, 업종명, 읍면동)와 병합**
+
+![K-Prototypes_preprocessing_8](md-images/K-Prototypes_preprocessing_8.png)
+
+군집분석을 위한 데이터 전처리 완료
+
+- ### 데이터 분석
+
+  <h5>1. 시계열분석</h5>
+
+  ARIMA모델과  Facebook의  fbprophet을 활용하여 분석한 결과, 높은 적합도를 보인 fbprophet을 채택하였다.
+
+  1. **모델 비교**
+
+     ![ARIMA](md-images/ARIMA-16293490409651.png)
+
+     ![fbprophet1](md-images/fbprophet1.png)
+
+     ARIMA(위)와 fbprophet(아래) 모델을 시각화하여 비교
+
+  2. **fbprophet 분석 준비**
+
+     ![fbprophet2](md-images/fbprophet2.png)
+
+     fbprophet은 ds 컬럼과 y컬럼을 가져야하기에 컬럼명을 변경하였다.
+
+  3. **이상치 상한값으로 대체**
+
+     ![fbprophet3](md-images/fbprophet3.png)
+
+     92번째 행이 상한값으로 대체되었다.
+
+  4. **모델 생성**
+
+     ![fbprophet4](md-images/fbprophet4.png)
+
+     
+
+  5. **예측, 모델 확인 **
+
+     ![fbprophet5](md-images/fbprophet5.png)
+
+     ![fbprophet6](md-images/fbprophet6.png)
+
+  6. **추세 시각화**
+
+     <img src="md-images/fbprophet7.png" alt="fbprophet7" style="zoom:75%;" />
+
+     <img src="md-images/fbprophet8.png" alt="fbprophet8" style="zoom:75%;" />
+
+     
+
+  7. **20일 예측**
+
+     ![fbprophet9](md-images/fbprophet9.png)
+
+     ![fbprophet10](md-images/fbprophet10.png)
+
+     
+
+  <h5>2. 군집분석</h5>
+
+  연속형 변수와 범주형 변수를 모두 사용할 수 있는 K-Modes의  K-Prototypes를 활용하여 비지도학습 군집분석을 수행하였다.
+
+  1. **변수 타입 설정**
+
+     ![K-Prototypes1](md-images/K-Prototypes1.png)
+
+  2. **원핫인코딩(더미 변수 생성)**
+
+     ![K-Prototypes2](md-images/K-Prototypes2.png)
+
+  3. **정규화**
+
+     ![K-Prototypes3](md-images/K-Prototypes3.png)
+
+  4. **모델생성**
+
+     ![K-Prototypes4](md-images/K-Prototypes4.png)
+
+     n_clusters : 군집 수
+
+     n_init : 모델 생성 횟수(기본 값이 10이며, 자동으로 최적의 모델을 선정한다. )
+
+     max_iter : 한 번의 모델 생성시 최대 반복 횟수
+
+  5. **모델 적합**
+
+     ![K-Prototypes5](md-images/K-Prototypes5.png)
+
+  6. **피클 생성**
+
+     ![K-Prototypes6](md-images/K-Prototypes6.png)
+
+     학습된 모델을 피클로 만들어 서버에 저장한다.
+
+     피클을 통해 모델링 과정을 생략함으로써 클라이언트 요청을 빠른 속도로 처리할 수 있다.
+
+  7. **군집별 특성 파악**
+
+     ![K-Prototypes7](md-images/K-Prototypes7.png)
+
+     ![K-Prototypes8](md-images/K-Prototypes8.png)
+
+     통계치를 통해 군집별 특성을 파악하고, 특성에 따른 컨설팅을 제공한다.
+
+  
+
+- ### 데이터 시각화
 
 ##### 1. 시각화 툴 선정
 
