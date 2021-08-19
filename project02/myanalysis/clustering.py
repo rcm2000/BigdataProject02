@@ -59,6 +59,5 @@ class Kprototypes:
 
 if __name__ == '__main__':
     kp = Kprototypes()
-    kp.analysis('41190742', '치킨', '산현동', 73000, 100, 9000, 1300)
-    print(kp.analysis('41190742', '치킨', '산현동', 73000, 100, 9000, 1300))
+    print(kp.analysis('41285590', '돈까스/일식', '장항동', 5713300, 157, 36300, 1430))
 
