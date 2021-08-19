@@ -427,8 +427,7 @@ df_fin = df.merge(df3, on=['date','code'], how='left')
 
   4. **창업 위치 선정 TIP 대시보드 구성**
 
-- ![gragh4_1](../Users/cjdau/Desktop/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%88%98%EC%97%85/pj2md/gragh4_1.png)
-
+- ![gragh4_1](https://github.com/rcm2000/BigdataProject02/blob/master/md-images/gragh4_1.png)
 - 위치별 매출액
 
   - 위치별로 마우스를 올리면 매출액을 확인할 수 있다.
