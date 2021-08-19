@@ -160,7 +160,7 @@ def analysis(request):
     time = request.POST['time'];
     if code != '' and type != ''and location != ''and m_sales != ''and m_orders != ''and m_amounts != ''and time != '' :
         result = Kprototypes().analysis(code, type, location, int(m_sales), int(m_orders), int(m_amounts), int(time)*60)
-        if int(result) == 1:
+        if int(result) == 0:
             context = {
                 'msg': tips.tip1[0],
                 'msg1': tips.tip1[1],
@@ -168,7 +168,7 @@ def analysis(request):
                 'msg3': tips.tip1[3],
             };
             return render(request, 'index4.html', context);
-        if int(result) == 2:
+        if int(result) == 1:
             context = {
                 'msg': tips.tip2[0],
                 'msg1': tips.tip2[1],
@@ -177,7 +177,7 @@ def analysis(request):
 
             };
             return render(request, 'index4.html', context);
-        if int(result) == 3:
+        if int(result) == 2:
             context = {
                 'msg': tips.tip3[0],
                 'msg1': tips.tip3[1],
@@ -185,7 +185,7 @@ def analysis(request):
                 'msg3': tips.tip3[3],
             };
             return render(request, 'index4.html', context);
-        if int(result) == 4:
+        if int(result) == 3:
             context = {
                 'msg': tips.tip4[0],
                 'msg1': tips.tip4[1],
